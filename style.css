@@ -1,0 +1,550 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 40px 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background:
+        radial-gradient(circle at top, #fff1f5 0%, #fce4ec 35%, #f8d7df 100%);
+
+    color: #4a2630;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+h1 {
+    margin: 0 0 30px 0;
+
+    font-size: clamp(32px, 5vw, 55px);
+
+    font-weight: normal;
+
+    color: #7b3045;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 10px rgba(123, 48, 69, 0.2);
+
+    animation: aparecerTitulo 1.5s ease-out;
+}
+
+
+
+h2 {
+    max-width: 850px;
+
+    margin: 0;
+
+    padding: 30px 40px;
+
+    font-size: clamp(18px, 2vw, 25px);
+
+    line-height: 1.8;
+
+    font-weight: normal;
+
+    text-align: center;
+
+    white-space: pre-line;
+
+    color: #5c3440;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(91, 39, 53, 0.15),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+
+    backdrop-filter: blur(8px);
+
+    animation: aparecerPoema 2s ease-out;
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+
+
+h2:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 50px rgba(91, 39, 53, 0.22),
+        inset 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+
+
+p {
+    margin-top: 25px;
+
+    font-size: 20px;
+
+    color: #8f3d55;
+
+    font-style: italic;
+
+    text-align: center;
+
+    animation: aparecer 1s ease;
+}
+
+
+
+.corazon {
+    position: fixed;
+
+    bottom: -60px;
+
+    font-size: 25px;
+
+    animation: subir linear forwards;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    filter: drop-shadow(
+        0 3px 5px rgba(120, 30, 50, 0.2)
+    );
+}
+
+
+@keyframes subir {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            rotate(180deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+}
+
+
+
+@keyframes aparecerTitulo {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-30px)
+            scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes aparecerPoema {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    top: -150px;
+    left: -100px;
+
+    background: rgba(255, 182, 193, 0.35);
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    animation: flotar 6s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    bottom: -200px;
+    right: -100px;
+
+    background: rgba(220, 130, 155, 0.25);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    animation: flotar 7s ease-in-out infinite alternate-reverse;
+
+    pointer-events: none;
+}
+
+
+@keyframes flotar {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(40px, 30px);
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        padding: 25px 20px;
+
+        font-size: 17px;
+
+        line-height: 1.7;
+
+        border-radius: 20px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+}
+/* =========================
+   FLORES AMARILLAS
+========================= */
+
+/* =========================
+   FLORES EN LAS ESQUINAS
+========================= */
+
+.flor-esquina {
+    position: fixed;
+
+    font-size: 55px;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    filter: drop-shadow(0 4px 6px rgba(120, 90, 0, 0.25));
+
+    animation: florSuave 3s ease-in-out infinite;
+}
+
+
+/* ESQUINA SUPERIOR IZQUIERDA */
+
+.flor-arriba-izquierda {
+    top: 20px;
+    left: 20px;
+}
+
+
+/* ESQUINA SUPERIOR DERECHA */
+
+.flor-arriba-derecha {
+    top: 20px;
+    right: 20px;
+}
+
+
+/* ESQUINA INFERIOR IZQUIERDA */
+
+.flor-abajo-izquierda {
+    bottom: 20px;
+    left: 20px;
+}
+
+
+/* ESQUINA INFERIOR DERECHA */
+
+.flor-abajo-derecha {
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes florSuave {
+
+    0% {
+        transform: scale(1) rotate(-5deg);
+    }
+
+    50% {
+        transform: scale(1.08) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-5deg);
+    }
+}
+
+.flor-arriba-izquierda {
+    top: 25px;
+    left: 25px;
+}
+
+.flor-arriba-derecha {
+    top: 25px;
+    right: 25px;
+}
+
+.flor-abajo-izquierda {
+    bottom: 25px;
+    left: 25px;
+}
+
+.flor-abajo-derecha {
+    bottom: 25px;
+    right: 25px;
+}
+
+.brillito {
+    position: fixed;
+
+    color: #ffffff;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.9),
+        0 0 12px rgba(255, 182, 193, 0.8);
+
+    animation: aparecerBrillito ease-in-out forwards;
+}
+
+@keyframes aparecerBrillito {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(0deg);
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(90deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.4) rotate(180deg);
+    }
+}
+.dedicatoria {
+
+    margin-top: 45px;
+    margin-bottom: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    color: #7b3045;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    animation: aparecerDedicatoria 2s ease-out;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.dedicatoria span:first-child {
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    margin-bottom: 5px;
+}
+
+.dedicatoria strong {
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 2px 8px rgba(123, 48, 69, 0.15);
+}
+
+.dedicatoria span:last-child {
+
+    font-size: 22px;
+
+    margin-top: 10px;
+
+    animation: latirCorazon 1.5s ease-in-out infinite;
+}
+
+
+@keyframes aparecerDedicatoria {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes latirCorazon {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+    }
+
+    50% {
+
+        transform: scale(1.2);
+    }
+}
+
+
+/* 📱 CELULAR */
+
+@media (max-width: 600px) {
+
+    .dedicatoria {
+
+        margin-top: 35px;
+
+        margin-bottom: 25px;
+
+    }
+
+    .dedicatoria span:first-child {
+
+        font-size: 18px;
+
+    }
+
+    .dedicatoria strong {
+
+        font-size: 23px;
+
+    }
+
+    .dedicatoria span:last-child {
+
+        font-size: 20px;
+
+    }
+}
